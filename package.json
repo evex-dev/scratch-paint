@@ -14,7 +14,7 @@
     "test": "npm run unit",
     "unit": "jest --reporters=default",
     "watch": "webpack --progress --colors --watch",
-    "dev": "vite"
+    "dev": "bun run build && bun --watch scripts/dev-server.ts"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "AGPL-3.0-only",

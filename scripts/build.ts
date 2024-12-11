@@ -70,7 +70,7 @@ export const build = async () => {
                     .replaceAll('$scrollbar-size', '8px')
                     .replaceAll('$scrollbar-padding', '4px')
                     .replaceAll('$arrow-border-width', '14px')
-  
+
                     .replaceAll('$ui-pane-border', '#D9D9D9')
                     .replaceAll('$ui-pane-gray', '#F9F9F9')
                     .replaceAll('$ui-background-blue', '#e8edf1')
@@ -84,15 +84,20 @@ export const build = async () => {
                     .replaceAll('$control-primary', '#FFAB19')
                     .replaceAll('$data-primary', '#FF8C1A')
                     .replaceAll('$form-border', '#E9EEF2')
-  
+
                     .replaceAll('$border-radius', '0.25rem')
                   return replaced
                 },
               }
             })
             css += bundled.code
+            const moduleCss: Record<string, string> = {}
+            for (const key in bundled.exports ?? {}) {
+                const exportData = bundled.exports[key]
+                moduleCss[key.replace(/-\w/g, (v) => v.slice(1).toUpperCase())] = exportData.name
+            }
             return {
-              contents: JSON.stringify(bundled.exports, null, 2),
+              contents: JSON.stringify(moduleCss, null, 2),
               loader: 'json'
             }
           })
@@ -105,8 +110,8 @@ export const build = async () => {
  /* if (!built.success) {
     throw built.logs[0]
   }*/
-  await Bun.write('dist/index.css', css) 
-  await Bun.write('dist/index.js', built.outputFiles?.[0].text ?? '') 
+  await Bun.write('dist/index.css', css)
+  await Bun.write('dist/index.js', built.outputFiles?.[0].text ?? '')
 }
 
 if (import.meta.main) {

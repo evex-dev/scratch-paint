@@ -15,6 +15,7 @@ app.get('/', c => c.html(html`
       <title>Scratch-Paint by Evex playground</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="/scratch-paint.css">
       <script>
         {
           const ws = new WebSocket('/ws')
@@ -23,6 +24,8 @@ app.get('/', c => c.html(html`
           }
         }
       </script>
+      <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+      <script>eruda.init();</script>
       <script type="module" src="/main.js"></script>
     </head>
     <body>
@@ -65,6 +68,10 @@ app.get('/main.js', async (c) => {
 app.get('/scratch-paint.js', async c => {
   c.header('Content-Type', 'text/javascript')
   return c.body(await Bun.file('dist/index.js').text())
+})
+app.get('/scratch-paint.css', async c => {
+  c.header('Content-Type', 'text/css')
+  return c.body(await Bun.file('dist/index.css').text())
 })
 
 const wscontexts = new Set<WSContext>()
