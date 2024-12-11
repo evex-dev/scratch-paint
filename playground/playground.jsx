@@ -1,15 +1,19 @@
 import bindAll from 'lodash.bindall';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PaintEditor from '..';
+import PaintEditor from 'scratch-paint';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import reducer from './reducers/combine-reducers';
 import {intlInitialState, IntlProvider} from './reducers/intl.js';
-import styles from './playground.css';
+//import styles from './playground.css';
 // scratch-render-fonts is a playground-only dep. Fonts are expected to be imported
 // as a peer dependency, otherwise there will be two copies of them.
-import {FONTS} from 'scratch-render-fonts';
+//import {FONTS} from 'scratch-render-fonts';
+
+const styles = {
+
+}
 
 const appTarget = document.createElement('div');
 appTarget.setAttribute('class', styles.playgroundContainer);
