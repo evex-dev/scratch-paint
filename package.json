@@ -1,9 +1,16 @@
 {
-  "name": "scratch-paint",
-  "version": "3.0.34",
+  "name": "@evex-dev/scratch-paint",
+  "version": "0.1.0",
   "description": "Graphical User Interface for the Scratch 3.0 paint editor, which is used to make and edit sprites for use in projects.",
-  "main": "./dist/scratch-paint.js",
-  "browser": "./src/index.js",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./css": {
+      "default": "./dist/index.css"
+    }
+  },
   "scripts": {
     "build": "bun scripts/build.ts",
     "clean": "rimraf ./dist && mkdirp dist && rimraf ./playground && mkdirp playground",
@@ -24,6 +31,13 @@
     "url": "https://github.com/scratchfoundation/scratch-paint.git"
   },
   "dependencies": {
+    "@scratch/paper": "^0.11.0",
+    "classnames": "^2.5.1",
+    "keymirror": "^0.1.1",
+    "lodash.bindall": "^4.4.0",
+    "lodash.omit": "^4.5.0",
+    "minilog": "^3.1.0",
+    "parse-color": "^1.0.0",
     "react": "^16",
     "react-dom": "^16",
     "react-popover": "^0.5",
@@ -38,12 +52,10 @@
     "esbuild": "^0.24.0",
     "hono": "^4.6.13",
     "json": "9.0.6",
+    "jsr": "^0.13.2",
     "lightningcss": "^1.28.2",
     "lodash.defaultsdeep": "4.6.1",
     "mkdirp": "1.0.4",
-    "postcss-import": "12.0.1",
-    "postcss-loader": "3.0.0",
-    "postcss-simple-vars": "5.0.2",
     "raf": "3.4.1",
     "react-intl": "2.9.0",
     "react-intl-redux": "2.4.1",
@@ -80,5 +92,13 @@
     "last 3 versions",
     "Safari >= 8",
     "iOS >= 8"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "TRADEMARK"
   ]
 }

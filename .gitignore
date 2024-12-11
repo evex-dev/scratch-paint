@@ -4,6 +4,7 @@
 # NPM
 /node_modules
 npm-*
+.npmrc
 
 # Build
 dist/*
@@ -18,3 +19,5 @@ dist/*
 
 # tests
 /test/results/*
+
+package-lock.json
