@@ -1,5 +1,3 @@
-$scrollbar-size: 8px;
-$scrollbar-padding: 4px;
 
 .vertical-scrollbar, .horizontal-scrollbar {
     background: rgba(190, 190, 190, 0.8);

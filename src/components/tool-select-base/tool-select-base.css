@@ -1,8 +1,3 @@
-@import '../../css/colors.css';
-@import "../../css/units.css";
-
-$border-radius: .25rem;
-
 .mod-tool-select {
     display: inline-block;
     margin: $grid-unit;

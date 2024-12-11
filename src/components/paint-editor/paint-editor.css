@@ -1,5 +1,3 @@
-@import "../../css/colors.css";
-@import "../../css/units.css";
 
 .editor-container {
     width: 100%;
@@ -45,7 +43,7 @@
     height: 2.85rem; /* for the second row so the dashed borders are equal in size */
 }
 
-$border-radius: 0.25rem;
+
 
 .button-group-button {
     display: inline-block;

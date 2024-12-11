@@ -8,7 +8,7 @@ See #13 */
  * library being used, `react-tooltip`
  */
 
-@import "../../css/colors.css";
+
 
 .coming-soon {
     background-color: $data-primary !important;
