@@ -24,28 +24,26 @@ jobs:
         - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         - uses: wagoid/commitlint-github-action@5ce82f5d814d4010519d15f0552aec4f17a1e1fe # v5
           if: github.event_name == 'pull_request'
-        - uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
+        - uses: actions/setup-bun@2 # v3
           with:
-            cache: "npm"
-            node-version-file: ".nvmrc"
+            bun-version: latest
         - name: Info
           run: |
             cat <<EOF
-            Node version: $(node --version)
-            NPM version: $(npm --version)
+            Bun version: $(bun --version)
             GitHub ref: ${{ github.ref }}
             GitHub head ref: ${{ github.head_ref }}
             EOF
-        - name: Install NPM Dependencies
+        - name: Install Bun Dependencies
           run: |
-            npm ci
+            bun install --frozen-lockfile
             mkdir -p ./test/results
         - name: Run Lint
-          run: npm run lint
+          run: bun run lint
         - name: Run Tests
-          run: npm run test
+          run: bun run test
         - name: Build
-          run: npm run build
+          run: bun run build
           env:
             NODE_ENV: production
         - name: Deploy playground to GitHub Pages
@@ -55,11 +53,3 @@ jobs:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: playground
             full_commit_message: "Build for ${{ github.sha }} ${{ github.event.head_commit.message }}"
-        - name: Semantic Release
-          if: ${{ env.TRIGGER_DEPLOY == 'true'}}
-          env:
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: npx --no -- semantic-release
-
-  
