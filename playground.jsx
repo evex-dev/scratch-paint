@@ -1,6 +1,6 @@
 import bindAll from 'lodash.bindall';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import PaintEditor from 'scratch-paint';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -186,10 +186,10 @@ class Playground extends React.Component {
     }
 
 }
-ReactDOM.render((
+createRoot(appTarget).render(
     <Provider store={store}>
         <IntlProvider>
             <Playground />
         </IntlProvider>
     </Provider>
-), appTarget);
+)
