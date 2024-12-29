@@ -31,7 +31,6 @@
     "url": "https://github.com/scratchfoundation/scratch-paint.git"
   },
   "dependencies": {
-    "@scratch/paper": "^0.11.0",
     "classnames": "^2.5.1",
     "keymirror": "^0.1.1",
     "lodash.bindall": "^4.4.0",
@@ -46,6 +45,7 @@
     "redux": "^3"
   },
   "devDependencies": {
+    "@scratch/paper": "^0.11.0",
     "@types/bun": "^1.1.14",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.8",
