@@ -1,6 +1,6 @@
 {
   "name": "@evex-dev/scratch-paint",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "type": "module",
   "description": "Graphical User Interface for the Scratch 3.0 paint editor, which is used to make and edit sprites for use in projects.",
   "exports": {
