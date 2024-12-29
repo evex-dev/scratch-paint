@@ -11,7 +11,7 @@ export const build = async () => {
     format: 'esm',
     outdir: 'dist',
     bundle: true,
-    external: ['react', 'redux', 'react-dom', 'react-redux', 'react-popover', 'react-responsive'],
+    external: ['react', 'redux', 'react-dom', 'react-redux', 'react-popover', 'react-responsive', 'react-intl', 'react-intl-redux'],
     define: {
       'process.env.NODE_ENV': '"production"',
     },
